@@ -1,10 +1,10 @@
 # syntax=docker/dockerfile:1
 
-ENV BOT_TOKEN=YOUR_TOKEN_HERE
-
 FROM node:18-alpine
-WORKDIR /app
+WORKDIR /usr/rolling-girl
 COPY . .
-RUN yarn install -production
-CMD ["npm", "start"]
+RUN npm install && npm install typescript -g
+ENV BOT_TOKEN=YOUR_TOKEN_HERE
+RUN tsc
+CMD ["node", "./build/index.js"]
 EXPOSE 3000
