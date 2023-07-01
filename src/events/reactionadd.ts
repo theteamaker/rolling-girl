@@ -22,7 +22,7 @@ module.exports = {
       ...reaction.message.content.matchAll(twitter_link_regexp),
     ];
 
-    if (matches == null) return;
+    if (matches.length === 0) return;
 
     const replaced_links: Array<string> = [];
 
@@ -41,9 +41,6 @@ module.exports = {
 
     try {
       await reaction.remove();
-    } catch {}
-
-    try {
       await reaction.message.reply({
         content: stringified_array,
         allowedMentions: { parse: [] },

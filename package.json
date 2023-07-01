@@ -16,6 +16,6 @@
     "dotenv": "^16.3.1"
   },
   "scripts": {
-    "start": "ts-node -r dotenv/config ./src/index.ts"
+    "start": "node /build/index.js"
   }
 }
