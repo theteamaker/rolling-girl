@@ -46,6 +46,8 @@ module.exports = {
         allowedMentions: { parse: [] },
         flags: MessageFlags.SuppressNotifications,
       });
-    } catch {}
+    } catch (error) {
+      console.log(error);
+    }
   },
 };
