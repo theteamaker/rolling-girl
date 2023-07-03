@@ -40,7 +40,10 @@ module.exports = {
     let stringified_array = replaced_links.join("\n");
 
     try {
-      await reaction.remove();
+      try {
+        await reaction.remove();
+      } catch {}
+
       await reaction.message.reply({
         content: stringified_array,
         allowedMentions: { parse: [] },
